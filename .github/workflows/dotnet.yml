@@ -26,4 +26,6 @@ jobs:
         cd Adochat.ServerSide/Adochat.WebApi
         dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: |
+        cd Adochat.ServerSide/Adochat.WebApi
+        dotnet test --no-build --verbosity normal
