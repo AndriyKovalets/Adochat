@@ -1,6 +1,6 @@
 ﻿namespace Adochat.Domain.Entities
 {
-    internal interface IBaseEntity
+    public interface IBaseEntity
     {
     }
 }
