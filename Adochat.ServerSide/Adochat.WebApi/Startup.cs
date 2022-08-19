@@ -1,6 +1,7 @@
 ﻿using Adochat.Application;
 using Adochat.Persistence;
 using Adochat.WebApi.AppConfig;
+using Adochat.WebApi.Middlewares;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 namespace Adochat.WebApi
@@ -37,6 +38,8 @@ namespace Adochat.WebApi
                     config.RoutePrefix = string.Empty;
                 }
             });
+
+            app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 
             app.UseRouting();
             app.UseHttpsRedirection();
