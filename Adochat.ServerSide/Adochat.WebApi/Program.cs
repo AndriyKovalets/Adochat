@@ -1,13 +1,12 @@
+using Adochat.Application;
 using Adochat.Persistence;
+using Adochat.WebApi.ServicesExtentions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.SetupWebApi(builder.Configuration);
+builder.Services.SetupCore(builder.Configuration);
 builder.Services.SetupPersistence(builder.Configuration);
 
 var app = builder.Build();
@@ -20,6 +19,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("Policy");
 
 app.UseAuthorization();
 
