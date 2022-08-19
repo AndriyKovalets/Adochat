@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Adochat.WebApi.Controllers
 {
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
